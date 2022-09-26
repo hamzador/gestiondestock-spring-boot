@@ -11,7 +11,7 @@ spring:
 #    properties:
 #      hibernate:
 #        session_factory:
-#          interceptor: com.bouali.gestiondestock.interceptor.Interceptor
+#          interceptor: com.douyry.gestiondestock.interceptor.Interceptor
 
     # Hibernate DDL Auto (create, create-drop, update)
     hibernate:
@@ -20,3 +20,7 @@ spring:
 
 server:
   port: 8081
+
+flickr:
+  apikey: 56c5bb0def12f760c2b7968fc74da486
+  apiSecret: c4e4640fa6805dc5

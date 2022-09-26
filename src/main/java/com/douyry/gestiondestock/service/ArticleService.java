@@ -5,7 +5,6 @@ import com.douyry.gestiondestock.dto.ArticleDto;
 import java.util.List;
 
 public interface ArticleService {
-
     public ArticleDto save(ArticleDto articleDto);
     public ArticleDto findById(Integer id);
     public ArticleDto findByCodeArticle(String codeArticle);
