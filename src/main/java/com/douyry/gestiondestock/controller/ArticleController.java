@@ -2,6 +2,9 @@ package com.douyry.gestiondestock.controller;
 
 import com.douyry.gestiondestock.controller.api.ArticleApi;
 import com.douyry.gestiondestock.dto.ArticleDto;
+import com.douyry.gestiondestock.dto.LigneCommandeClientDto;
+import com.douyry.gestiondestock.dto.LigneCommandeFournisseurDto;
+import com.douyry.gestiondestock.dto.LigneVenteDto;
 import com.douyry.gestiondestock.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,7 +42,29 @@ public class ArticleController implements ArticleApi {
     }
 
     @Override
+    public List<LigneVenteDto> findHistoriqueVentes(Integer idArticle) {
+        return null;
+    }
+
+    @Override
+    public List<LigneCommandeClientDto> findHistoriaueCommandeClient(Integer idArticle) {
+        return null;
+    }
+
+    @Override
+    public List<LigneCommandeFournisseurDto> findHistoriqueCommandeFournisseur(Integer idArticle) {
+        return null;
+    }
+
+    @Override
+    public List<ArticleDto> findAllArticleByIdCategory(Integer idCategory) {
+        return null;
+    }
+
+    @Override
     public void delete(Integer idArticle) {
         articleService.delete(idArticle);
     }
+
+
 }

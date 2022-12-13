@@ -5,6 +5,9 @@ spring:
     password:
     driver-class-name: com.mysql.cj.jdbc.Driver
   ## Specify DBMS
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   jpa:
     database: MYSQL
     show-sql: false
