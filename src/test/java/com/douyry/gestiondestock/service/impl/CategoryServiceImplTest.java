@@ -1,6 +1,7 @@
 package com.douyry.gestiondestock.service.impl;
 
 import com.douyry.gestiondestock.dto.CategoryDto;
+import com.douyry.gestiondestock.exception.EntityNotFoundException;
 import com.douyry.gestiondestock.exception.ErrorCodes;
 import com.douyry.gestiondestock.exception.InvalidEntityException;
 import com.douyry.gestiondestock.service.CategoryService;
@@ -28,7 +29,6 @@ public class CategoryServiceImplTest {
                 .build();
         CategoryDto savedCategory = categoryService.save(expectedCategory);
 
-        //
         Assertions.assertNotNull(savedCategory);
         Assertions.assertNotNull(savedCategory.getId());
         Assertions.assertEquals(savedCategory.getCode(), expectedCategory.getCode());
@@ -65,6 +65,19 @@ public class CategoryServiceImplTest {
         assertEquals(ErrorCodes.CATEGORY_NOT_VALID, expectedException.getErrorCode());
         assertEquals(1,expectedException.getErrors().size());
         assertEquals("Veuillez renseigner le code de la categorie",expectedException.getErrors().get(0));
+    }
+
+    @Test
+    public void shouldThrowEntityNotFoundException(){
+        EntityNotFoundException expectedException = assertThrows(EntityNotFoundException.class, () -> categoryService.findById(0));
+
+        assertEquals(ErrorCodes.CATEGORY_NOT_FOUND, expectedException.getErrorCode());
+        assertEquals("Aucune category avec l'ID = 0 n' ete trouve dans la BDD",expectedException.getMessage());
+    }
+
+    @Test(expected = EntityNotFoundException.class)
+    public void shouldThrowEntityNotFoundException1(){
+        categoryService.findById(0);
     }
 
 
